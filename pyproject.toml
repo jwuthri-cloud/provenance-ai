@@ -1,0 +1,36 @@
+[project]
+name = "trace-workspace"
+version = "0.0.0"
+description = "trace — git-native AI authorship provenance (monorepo workspace root)"
+requires-python = ">=3.11"
+dependencies = [
+    "trace-core",
+    "trace-daemon",
+    "trace-client",
+    "trace-capture-claude-code",
+    "trace-cli",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["packages/*"]
+
+[tool.uv.sources]
+trace-core = { workspace = true }
+trace-daemon = { workspace = true }
+trace-client = { workspace = true }
+trace-capture-claude-code = { workspace = true }
+trace-cli = { workspace = true }
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.pytest.ini_options]
+testpaths = ["packages"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

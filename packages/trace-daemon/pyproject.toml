@@ -1,0 +1,24 @@
+[project]
+name = "trace-daemon"
+version = "0.1.0"
+description = "trace — local daemon: ingest, SQLite WAL hot store, classification, chunk attribution, git notes (M2)"
+requires-python = ">=3.11"
+dependencies = [
+    "trace-core",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "cryptography>=42",
+]
+
+[project.scripts]
+trace-daemon = "trace_daemon.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trace_daemon"]
+
+[tool.uv.sources]
+trace-core = { workspace = true }

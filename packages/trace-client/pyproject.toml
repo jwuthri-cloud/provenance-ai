@@ -1,0 +1,13 @@
+[project]
+name = "trace-client"
+version = "0.1.0"
+description = "trace — thin, dependency-light plugin SDK (fire-and-forget send + spool + circuit breaker)"
+requires-python = ">=3.11"
+dependencies = []  # stdlib only on purpose: this lib is loaded inside editor/hook processes
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trace_client"]

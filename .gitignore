@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+
+# trace local state (never commit a developer's hot store)
+.trace/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+
+# Node / Next.js (later phases)
+node_modules/
+.next/
+
+# OS
+.DS_Store
